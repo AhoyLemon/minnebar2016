@@ -1,0 +1,57 @@
+.reveal .tech-logos { padding-top: 1em; padding-bottom: 1em; }
+
+* { box-sizing: border-box; }
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, dialog, div, dl, dt, em, embed, fieldset, figcaption, figure, font, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, html, i, iframe, img, ins, kbd, label, legend, li, main, mark, menu, meter, nav, object, ol, output, p, pre, progress, q, rp, rt, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video, xmp { border: 0; margin: 0; padding: 0; font-size: 100%; }
+
+html, body { height: 100%; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+b, strong { font-weight: bold; }
+
+img { color: transparent; font-size: 0; vertical-align: middle; -ms-interpolation-mode: bicubic; }
+
+ul, ol { list-style: none; }
+
+li { display: list-item; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+th, td, caption { font-weight: normal; vertical-align: top; text-align: left; }
+
+q { quotes: none; }
+
+q:before, q:after { content: ""; content: none; }
+
+sub, sup, small { font-size: 75%; }
+
+sub, sup { line-height: 0; position: relative; vertical-align: baseline; }
+
+sub { bottom: -0.25em; }
+
+sup { top: -0.5em; }
+
+svg { overflow: hidden; }
+
+body { font-family: "Roboto Slab", serif; font-size: 16px; background: #222730; }
+
+h1, h2, h3, h4, h5 h6 { font-family: "Roboto Slab", serif; }
+
+p { padding-bottom: 1em; }
+
+svg * { fill: currentColor; }
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 { text-transform: none; }
+
+.reveal h1 b, .reveal h2 b, .reveal h3 b, .reveal h4 b, .reveal h5 b, .reveal h6 b { font-size: 1.5em; }
+
+.reveal .tech-logos { display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }
+
+.reveal .tech-logos.around { -webkit-justify-content: space-around; -ms-flex-pack: distribute; justify-content: space-around; }
+
+.reveal .tech-logos .logo { width: 20%; -webkit-flex-basis: 20%; -ms-flex-preferred-size: 20%; flex-basis: 20%; -webkit-flex-grow: 0; -ms-flex-positive: 0; flex-grow: 0; -webkit-flex-shrink: 1; -ms-flex-negative: 1; flex-shrink: 1; -webkit-align-self: auto; -ms-flex-item-align: auto; align-self: auto; padding-left: 0.5em; padding-right: 0.5em; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-align-items: center; -ms-flex-align: center; align-items: center; }
+
+.reveal .tech-logos img { background: transparent; border: none; box-shadow: none; width: 100%; }
+
+/*# sourceMappingURL=lemon-slides.css.map */

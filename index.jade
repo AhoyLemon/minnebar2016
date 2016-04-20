@@ -1,0 +1,192 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    title It's Lemon
+    link(rel="stylesheet" href="css/reveal.css")
+    link(rel="stylesheet" href="css/theme/black.css")
+    link(rel="stylesheet" href="lib/css/zenburn.css")
+    link(rel="stylesheet" href="/css/lemon-slides.css")
+  body
+    
+    mixin techLogo(name, fragment, fileType)
+      if fileType == "png"
+        -src = 'img/'+name+'.png'
+      else
+        -src = 'svg/'+name+'.svg'
+      if fragment
+        .logo.fragment
+          img(src="#{src}")
+      else
+        .logo
+          img(src="#{src}")
+    
+    .reveal
+      .slides
+        section
+          section
+            h2 Hi, I'm Lemon.
+            h2.fragment I make websites.
+            h3.fragment A lot of websites.
+          section
+            h1 Big ones like...
+            ul.fragment
+              li General Mills
+              li United Health Group
+              li Ramada Plaza
+              li Lifetime Fitness
+              li 3M
+              li Minnesota Wild
+              li US Bank
+          section
+            h5 Little ones like...
+            ul.fragment
+              li The Wrongest Words
+              li Recent Firings In San Francisco
+              li damn.dog
+          section
+            img(src="img/damndog-logo.png" style="width:30vh;")
+            blockquote
+              p "The best game on the internet"
+              cite(style="display:block; text-align:right;") - Gizmodo
+            
+          section
+            h3 I tweet sometimes.
+            h1.fragment @AhoyLemon
+            p.fragment If you tweeted at me during this, that would be fine. Some people find it rude, but I like the attention.
+          section
+            h2 I also do a podcast.
+            p.fragment It's called The F Plus. We read terrible things with enthusiasm.
+            p.fragment I'm proud of it, but it probably isn't appropriate for your workplace.
+            p.fragment Anyway, you can go to thefpl.us for that.
+            
+        section
+          section
+            h2 But let's talk about making websites.
+          section(data-transition="zoom")
+            h3 When I make websites I use...
+            .tech-logos
+              +techLogo('php', true)
+              +techLogo('kirby', true)
+              +techLogo('concrete5', true)
+              +techLogo('drupal', true)
+              +techLogo('wordpress', true)
+              +techLogo('dotnet', true)
+              +techLogo('knockout', true)
+              +techLogo('nodejs', true)
+              +techLogo('angular', true)
+              +techLogo('ember', true)
+              +techLogo('bourbon', true)
+              +techLogo('beer', true)
+              +techLogo('gin', true, "png")
+              +techLogo('rum', true, "png")
+          section(data-transition="zoom")
+            h3 But really, all that technology amounts to...
+            .tech-logos.fragment
+              +techLogo('html5')
+              +techLogo('css3')
+              +techLogo('javascript')
+          section(data-transition="zoom")
+            h3 But really, THAT just means...
+            .tech-logos
+              +techLogo('jade')
+              +techLogo('sass')
+              +techLogo('jquery')
+            h4.fragment And that's what we're gonna talk about today.
+        section(data-transition="none")
+          section
+            .tech-logos
+              +techLogo('jade')
+              +techLogo('sass')
+              +techLogo('jquery')
+            h2 These are all preprocessors.
+          section
+            h2 What is a preprocessor?
+            p.fragment It's a way for you, as a developer to write quicker, prettier, more maintainable code, and let the computers do the crappy parts.
+          section
+            h3 Okay, let's use this as an example...
+            .tech-logos
+              +techLogo('jade')
+              +techLogo('sass')
+              +techLogo('jquery')
+          section
+            h3 Pretty code in...
+            pre.fragment
+              code(data-trim data-noescape).
+                .tech-logos { @include flex-container(); @extend %gutters;
+                  .logo { @include flex-item(20%,0); }
+                }
+            h3.fragment Ugly code out...
+            pre.fragment
+              code(data-trim data-noescape).
+                .reveal .tech-logos { display: -webkit-flex;
+                                      display: -ms-flexbox;
+                                      display: flex;
+                                      -webkit-flex-direction: row;
+                                      -ms-flex-direction: row;
+                                      flex-direction: row;
+                                      -webkit-flex-wrap: wrap;
+                                      -ms-flex-wrap: wrap;
+                                      flex-wrap: wrap; }
+                .reveal .tech-logos .logo { width: 20%; 
+                                            -webkit-flex-basis: 20%;
+                                            -ms-flex-preferred-size: 20%;
+                                            flex-basis: 20%;
+                                            -webkit-flex-grow: 0;
+                                            -ms-flex-positive: 0;
+                                            flex-grow: 0;
+                                            -webkit-flex-shrink: 1;
+                                            -ms-flex-negative: 1;
+                                            flex-shrink: 1;
+                                            -webkit-align-self: auto;
+                                            -ms-flex-item-align: auto;
+                                            align-self: auto; }
+          section
+            h3 That was all
+            .tech-logos(style="justify-content:space-around")
+              +techLogo('sass')
+            h4.fragment Sass stands for 
+              b S
+              | yntactically 
+              b A
+              | wesome 
+              b S
+              | tyle
+              b S
+              | heets
+            h5.fragment The only rule: Don't capitalize Sass.
+          section
+            h3 To do all this stuff, you'll need a Task Runner.
+            h5.fragment There's a number of them to choose from.
+            .tech-logos.around
+              +techLogo('grunt', true)
+              +techLogo('gulp', true)
+            h5.fragment BUT, these are command line tools...
+          section(data-background="img/bg/grunt.png" data-background-size="80%")
+            h1.fragment CAN A BROTHER GET A GUI!?
+            h2.fragment (yes.)
+          section
+            h4 Because there's also...
+            .tech-logos.around
+              +techLogo('codekit', true, "png")
+              +techLogo('prepros', true, "png")
+            h5.fragment Personally, I use Prepros.
+          section(data-background="img/bg/prepros.png")
+          section(data-background="img/bg/prepros2.png" data-background-size="80%")
+  
+    script(src="lib/js/head.min.js")
+    script(src="js/reveal.js")
+    script(type="text/javascript").
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+          history: true,
+
+          // More info https://github.com/hakimel/reveal.js#dependencies
+          dependencies: [
+              { src: 'plugin/markdown/marked.js' },
+              { src: 'plugin/markdown/markdown.js' },
+              { src: 'plugin/notes/notes.js', async: true },
+              { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+          ]
+      });
