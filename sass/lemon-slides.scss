@@ -8,8 +8,18 @@
 
 .reveal {
   
-  h1, h2, h3, h4, h5, h6 { text-transform: none;
+  h1, h2, h3, h4, h5, h6, { text-transform: none;
+    &.shadow { text-shadow:0 0 0.2em $dark; }
+    &.inverse { color:$dark;
+      &.shadow { text-shadow:0 0 0.2em $white; }
+    }
     b { font-size:1.5em; }
+  }
+  p {
+    &.inverse { color:$dark;
+      &.shadow { text-shadow:0 0 0.2em $white; }
+    }
+    .shadow { text-shadow:0 0 0.2em $dark; }
   }
   
   .tech-logos { @include flex-container(); justify-content: space-between; @extend %gutters;
@@ -17,4 +27,10 @@
     .logo { @include flex-item(20%,0); padding-left: 0.5em; padding-right:0.5em; @include flex-container(center); }
     img { background:transparent; border:none; box-shadow: none; width: 100%; }
   }
+}
+
+.sample-jade-headline {
+  span.green { color:lime; }
+  code { padding-left:0.5em; color: yellow }
+  .bigger { text-transform: uppercase; }
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>It's Lemon</title>
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/theme/night.css">
     <link rel="stylesheet" href="lib/css/zenburn.css">
     <link rel="stylesheet" href="/css/lemon-slides.css">
   </head>
@@ -38,8 +38,8 @@
               <li>damn.dog</li>
             </ul>
           </section>
-          <section><img src="img/damndog-logo.png" style="width:30vh;">
-            <blockquote>
+          <section><img src="img/damndog-logo.png" style="width:40vh;">
+            <blockquote style="padding-left:0.5em; padding-right:0.5em;" class="fragment">
               <p>"The best game on the internet"</p>
               <cite style="display:block; text-align:right;">- Gizmodo</cite>
             </blockquote>
@@ -49,11 +49,11 @@
             <h1 class="fragment">@AhoyLemon</h1>
             <p class="fragment">If you tweeted at me during this, that would be fine. Some people find it rude, but I like the attention.</p>
           </section>
-          <section>
-            <h2>I also do a podcast.</h2>
-            <p class="fragment">It's called The F Plus. We read terrible things with enthusiasm.</p>
-            <p class="fragment">I'm proud of it, but it probably isn't appropriate for your workplace.</p>
-            <p class="fragment">Anyway, you can go to thefpl.us for that.</p>
+          <section data-background="img/bg/fplus_sheet.png">
+            <h2 class="inverse">I also do a podcast.</h2>
+            <p class="inverse">It's called <b>The F Plus. </b>We read terrible things with enthusiasm.</p>
+            <p class="inverse fragment">I'm proud of it, but it probably isn't appropriate for your workplace.</p>
+            <p class="inverse fragment">Anyway, you can go to <a href="https://thefpl.us"><b>thefpl.us</b></a> for that.</p>
           </section>
         </section>
         <section>
@@ -88,23 +88,24 @@
             </div>
           </section>
           <section data-transition="zoom">
-            <h3>But really, THAT just means...</h3>
+            <h3>But to me, that means...</h3>
             <div class="tech-logos">
                   <div class="logo"><img src="svg/jade.svg"></div>
                   <div class="logo"><img src="svg/sass.svg"></div>
                   <div class="logo"><img src="svg/jquery.svg"></div>
             </div>
-            <h4 class="fragment">And that's what we're gonna talk about today.</h4>
+            <h4 data-fragment-index="1" class="fragment">And that's what we're gonna talk about today.</h4>
+            <p data-fragment-index="1" class="fragment">Well, Jade and Sass. We'll skip javascript for now.</p>
           </section>
         </section>
         <section data-transition="none">
           <section>
-            <div class="tech-logos">
+            <h3>These are preprocessors.</h3>
+            <div class="tech-logos around">
                   <div class="logo"><img src="svg/jade.svg"></div>
                   <div class="logo"><img src="svg/sass.svg"></div>
-                  <div class="logo"><img src="svg/jquery.svg"></div>
+              <!--+techLogo('jquery')-->
             </div>
-            <h2>These are all preprocessors.</h2>
           </section>
           <section>
             <h2>What is a preprocessor?</h2>
@@ -120,11 +121,11 @@
           </section>
           <section>
             <h3>Pretty code in...</h3>
-            <pre class="fragment"><code data-trim data-noescape>.tech-logos { @include flex-container(); @extend %gutters;
+            <pre class="fragment"><code data-trim data-noescape class="scss">.tech-logos { @include flex-container(); @extend %gutters;
   .logo { @include flex-item(20%,0); }
 }</code></pre>
             <h3 class="fragment">Ugly code out...</h3>
-            <pre class="fragment"><code data-trim data-noescape>.reveal .tech-logos { display: -webkit-flex;
+            <pre class="fragment"><code data-trim data-noescape class="css">.reveal .tech-logos { display: -webkit-flex;
                       display: -ms-flexbox;
                       display: flex;
                       -webkit-flex-direction: row;
@@ -132,7 +133,9 @@
                       flex-direction: row;
                       -webkit-flex-wrap: wrap;
                       -ms-flex-wrap: wrap;
-                      flex-wrap: wrap; }
+                      flex-wrap: wrap;
+                      padding-top: 1em;
+                      padding-bottom: 1em; }
 .reveal .tech-logos .logo { width: 20%; 
                             -webkit-flex-basis: 20%;
                             -ms-flex-preferred-size: 20%;
@@ -149,24 +152,101 @@
           </section>
           <section>
             <h3>That was all</h3>
-            <div style="justify-content:space-around" class="tech-logos">
+            <div class="tech-logos around">
                   <div class="logo"><img src="svg/sass.svg"></div>
             </div>
             <h4 class="fragment">Sass stands for <b>S</b>yntactically <b>A</b>wesome <b>S</b>tyle<b>S</b>heets</h4>
             <h5 class="fragment">The only rule: Don't capitalize Sass.</h5>
+            <h5 class="fragment">Because Hampton Catlin will be disappointed in you.</h5>
+          </section>
+          <section data-background="img/bg/hampton.jpg" data-background-size="contain"></section>
+          <section>
+            <h3>Hampton also made </h3>
+            <div class="tech-logos around">
+                  <div class="logo"><img src="svg/haml.svg"></div>
+            </div>
+            <div class="fragment">
+              <h4>It looks like this...</h4>
+              <pre><code data-trim data-noescape class="haml">#content
+  .left.column
+    %h2 Welcome to our site!
+    %p= print_information
+  .right.column
+    %label
+      %span Enter your name
+      %input(type=text selected)</code></pre>
+            </div>
           </section>
           <section>
+            <h3>But I use...</h3>
+            <div class="tech-logos around">
+                  <div class="logo"><img src="svg/jade.svg"></div>
+            </div>
+            <div class="fragment">
+              <h4>It looks like this...</h4>
+              <pre><code data-trim data-noescape class="jade">#content
+  .left.column
+    h2 Welcome to our site!
+    p= information
+  .right.column
+    label
+      span Enter your name
+      input(type=text selected)</code></pre>
+            </div>
+          </section>
+          <section>
+            <h4>Haml</h4>
+            <pre><code data-trim data-noescape class="haml">#content
+  .left.column
+    %h2 Welcome to our site!
+    %p= print_information
+  .right.column
+    %label
+      %span Enter your name
+      %input(type=text selected)</code></pre>
+            <h4>Jade</h4>
+            <pre><code data-trim data-noescape class="jade">#content
+  .left.column
+    h2 Welcome to our site!
+    p= information
+  .right.column
+    label
+      span Enter your name
+      input(type=text selected)
+</code></pre>
+            <h5 class="fragment">7% fewer characters!*</h5>
+            <p style="font-size:0.6em;" class="fragment">*This statistic from the same place Carly Fiorina gets her facts from.</p>
+          </section>
+          <section>
+            <h5>By the way...</h5>
+            <h3>Apparently Jade is called Pug now?</h3>
+            <div class="fragment">
+              <h5>That seems unncessary.</h5>
+              <p>But here's the logo...</p>
+              <div class="tech-logos around">
+                <div class="logo"><img src="svg/pug.svg" style="width:20vh; height:20vh"></div>
+              </div>
+            </div>
+          </section>
+          <section data-background="img/bg/pugBG.png" data-background-size="contain">
+            <h2 style="color:#222222" class="fragment">Let's just keep calling it Jade.</h2>
+          </section>
+        </section>
+        <section>
+          <section>
             <h3>To do all this stuff, you'll need a Task Runner.</h3>
-            <h5 class="fragment">There's a number of them to choose from.</h5>
+            <p>A task runner can do a number of things, but the main use is that when you save a file, it'll process it into a different kind of file.</p>
+          </section>
+          <section>
+            <h3>There's a number of them to choose from.</h3>
             <div class="tech-logos around">
                   <div class="logo fragment"><img src="svg/grunt.svg"></div>
                   <div class="logo fragment"><img src="svg/gulp.svg"></div>
             </div>
             <h5 class="fragment">BUT, these are command line tools...</h5>
           </section>
-          <section data-background="img/bg/grunt.png" data-background-size="80%">
+          <section data-background="img/bg/grunt.png" data-background-size="contain">
             <h1 class="fragment">CAN A BROTHER GET A GUI!?</h1>
-            <h2 class="fragment">(yes.)</h2>
           </section>
           <section>
             <h4>Because there's also...</h4>
@@ -177,7 +257,431 @@
             <h5 class="fragment">Personally, I use Prepros.</h5>
           </section>
           <section data-background="img/bg/prepros.png"></section>
-          <section data-background="img/bg/prepros2.png" data-background-size="80%"></section>
+          <section data-background="img/bg/prepros2.png" data-background-size="contain">
+            <div style="background-color:rgba(35,35,35,0.75); padding:1em;" class="fragment">
+              <ol>
+                <li>Download & Install</li>
+                <li>Add to project</li>
+                <li>Tweak settings if you like.</li>
+              </ol>
+              <p>Now you can write Sass & Jade.</p>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>But why should I write Sass?</h2>
+            <div class="fragment">
+              <ol>
+                <li>nesting</li>
+                <li>imports</li>
+                <li>variables</li>
+                <li>mixins</li>
+                <li>extends</li>
+                <li>BONUS: auto prefixing</li>
+              </ol>
+            </div>
+          </section>
+          <section data-background="img/bg/beerdance.GIF">
+            <h2 class="shadow">LET'S TRY THEM ALL!!!</h2>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>1. nesting</h2>
+            <p>The most immediate change you can make.</p>
+            <pre><code data-trim data-noescape class="scss">.topnav { position:fixed; top:0; right:0; left:0; height:4rem;
+  .inner { padding-left:10px; padding-right:10px; }
+  a { color:white; text-decoration:none;
+    &.big { font-size:1.3em; }
+    &:hover { background:white; color:black; }
+  }
+}</code></pre>
+          </section>
+          <section>
+            <h3>Sass</h3>
+            <pre><code data-trim data-noescape class="scss">.topnav { position:fixed; top:0; right:0; left:0; height:4rem;
+  .inner { padding-left:10px; padding-right:10px; }
+  a { color:white; text-decoration:none;
+    &.big { font-size:1.3em; }
+    &:hover { background:white; color:black; }
+  }
+}</code></pre>
+            <h3>CSS</h3>
+            <pre><code data-trim data-noescape class="css">.topnav { position:fixed; top:0; right:0; left:0; height:4rem; }
+.topnav .inner { padding-left:10px; padding-right:10px; }
+.topnav a { color:white; text-decoration:none; }
+.topnav a.big { font-size:1.3em; }
+.topnav a:hover { background:white; color:black;  }</code></pre>
+          </section>
+          <section>
+            <h3>Any CSS file is already valid Sass.</h3>
+            <p>Just change your .css file to .scss, and you're ready to start nesting.</p>
+          </section>
+          <section>
+            <h3>⚠️ A BRIEF WARNING ⚠️</h3>
+            <p>While nesting is useful, it can (like anything programming related) get out of hand.</p>
+            <p>If you can help it, try to limit your nesting to 4 deep</p>
+            <pre><code data-trim data-noescape class="scss">.because {
+  .this {
+    .is {
+      .not {
+        .how {
+          .you {
+            .should {
+              .do {
+                .this { color:lime; }
+              }
+            }
+          }  
+        }
+      }
+    }
+  }
+}</code></pre>
+            <p>People get opinionated about this, but you'll be fine.</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>2. imports</h2>
+            <pre><code data-trim data-noescape class="scss">@import "globals/_variables";
+@import "globals/_mixins";
+@import "globals/_reset";
+
+@import "sections/_header";
+@import "sections/_main";
+@import "sections/_footer";
+
+@import "pages/_home";
+@import "pages/_error";
+@import "pages/_email";</code></pre>
+          </section>
+          <section>
+            <h3>With imports, you can break all your code into small, manageable pieces.</h3>
+            <p>Move stuff around at will, or yank out entire imports and laugh at their demise. The world is yours!</p>
+            <p class="fragment">This also prevents stuff like this...</p>
+          </section>
+          <section data-background="img/bg/chicago.png">
+            <h2 style="color:black;" class="fragment">The client wants you to change the footer CSS</h2>
+            <h1 style="color:black;" class="fragment">Good luck!</h1>
+          </section>
+          <section>
+            <h3>Personally, I do dozens of imports in a project.</h3>
+            <p>I keep them organized by what the block of code does, with broader ideas sharing a folder together.</p>
+            <p>That works for me, but you do you.</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>3. variables</h2>
+            <pre><code data-trim data-noescape class="scss">// FONTS
+$font-size:14px;
+$light:300;
+$bold:700;
+$slab:'Roboto Slab', serif;
+
+// COLORS
+$white:#f0f1f2;
+$black:#333;
+$red:#b22028;
+
+// MEASUREMENTS 
+$topnav-height: 4rem;
+$mobile-max:780px;
+$desktop-min:781px;</code></pre>
+          </section>
+          <section>
+            <h3>Let's code...</h3>
+            <pre><code data-trim data-noescape class="scss">body { font-family:$font; font-size:$font-size; background:$white; color:$black; }
+h1 { font-weight:$bold; }
+header { height:$topnav-height;
+  .inner { height:($topnav-height / 2) }
+}
+@media screen and (max-width:$mobile-max) {
+  header { display:none; }
+}</code></pre>
+          </section>
+          <section>
+            <h3>Variables means not having 17 accidental variations of the color red.</h3>
+            <p>Or <code>z-index:9999999;</code></p>
+            <p>Or changing the code a hundred times because the logo needed more padding.</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>4. mixins</h2>
+            <pre><code data-trim data-noescape class="scss">@mixin flex-container($align:stretch, $direction:row, $wrap:wrap) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  @if ($align != "stretch") {
+    align-items: $align;
+  }
+}
+
+@mixin flex-item($basis, $grow:1, $shrink:1, $align:auto) {
+  @if $grow == 0 {
+    width:$basis;
+    flex-basis: $basis;
+  } @else {
+    flex-basis: $basis;
+  }
+  flex-grow: $grow;
+  flex-shrink: $shrink;
+  align-self: $align;
+}
+
+@mixin respond-to($media) {
+  @if $media == desktop {
+    @media only screen and (min-width: $desktop-min) { @content; }
+  }
+  @else if $media == mobile {
+    @media only screen and (max-width: $mobile-max) { @content; }
+  }
+}
+
+@mixin flex-split($desktop, $mobile) {
+  @include respond-to(desktop) { @include flex-item($desktop); }
+  @include respond-to(mobile) { @include flex-item($mobile); }
+}</code></pre>
+          </section>
+          <section>
+            <h3>💖 Mixins are terrific! 💖</h3>
+            <div class="fragment">
+              <p>You can define basic ideas with default values, then alter those values for specific cases.</p>
+              <p>Which is like, kind of the point of CSS.</p>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>5. extends</h2>
+            <pre><code data-trim data-noescape class="scss">%inner { width: 100%; max-width:$max-width; margin-left:auto; margin-right: auto; }
+%clearfix {
+  &:after { content: ""; display: table; clear: both; }
+}
+%quote {
+  &:before { content: '\201C'; }
+  &:after { content: '\201D'; }
+}
+header, main, footer { @extend %inner;
+  .float-container { @extend %clearfix; }
+}
+blockquote {
+  p { @extend %quote; }
+}</code></pre>
+          </section>
+          <section>
+            <h3>Use extends whenever you notice you're typing the same series of commands.</h3>
+            <p>If you see a design with a lot of the same padding, borders, shadows or hover effects used frequently, throw those in an extend.</p>
+            <p>This will make it much easier to change
+              <s>if</s> when the designer changes her mind about how they should look.
+            </p>
+          </section>
+          <section>
+            <h3>mixins, extends, and variables work <i>great </i> with imports!</h3>
+            <p>None of these will end up in your processed CSS until they're actually used, so you can horde them like a dragon.</p>
+          </section>
+          <section data-background="img/bg/infinite.gif">
+            <h1 class="inverse shadow">REUSE THEM!</h1>
+            <p class="inverse shadow">I have about a dozen Sass partials that I carry over into every new project, so I can keep writing the same code.</p>
+            <p class="inverse shadow">Also to prevent myself for looking up the hex code for Facebook Blue for the 100th time.</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>BONUS: Auto Prefixing</h2>
+            <p>This is technically not a Sass thing, but you get it.</p>
+            <p>And you'll like it.</p>
+          </section>
+          <section data-background="img/bg/avery.gif">
+            <h2 class="shadow">Let's talk animation!</h2>
+          </section>
+          <section>
+            <h3>We're gonna make a sunrise...</h3>
+            <h4>Sass</h4>
+            <pre><code data-trim data-noescape class="scss">@keyframes sunrise {
+  0% { bottom: 0; left: 340px; background: #f00; }
+  33% { bottom: 340px; left: 340px; background: #ffd630; }
+  66% { bottom: 340px; left: 40px; background: #ffd630; }
+  100% { bottom: 0; left: 40px; background: #f00; }
+}
+.sun { animation: 10s ease infinite; }</code></pre>
+            <div class="fragment">
+              <h4>CSS</h4>
+              <pre><code data-trim data-noescape class="css">@-webkit-keyframes sunrise { 
+  0% { bottom: 0; left: 340px; background: #f00; }
+  33% { bottom: 340px; left: 340px; background: #ffd630; }
+  66% { bottom: 340px; left: 40px; background: #ffd630; }
+  100% { bottom: 0; left: 40px; background: #f00; }
+}
+
+@keyframes sunrise { 
+  0% { bottom: 0; left: 340px; background: #f00; }
+  33% { bottom: 340px; left: 340px; background: #ffd630; }
+  66% { bottom: 340px; left: 40px; background: #ffd630; }
+  100% { bottom: 0; left: 40px; background: #f00; }
+}  
+.sun { -webkit-animation: 10s ease infinite; animation: 10s ease infinite; }</code></pre>
+            </div>
+          </section>
+          <section>
+            <h2>On every save, your preprocessor applies the prefixes.</h2>
+            <p>Writing -ms-flex is for chumps.</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Okay, so that's Sass.</h2>
+          </section>
+          <section>
+            <h3>So what's this about</h3>
+            <div class="tech-logos around">
+                  <div class="logo"><img src="svg/jade.svg"></div>
+            </div>
+          </section>
+          <section>
+            <h2> So, why should I write Jade?</h2>
+            <h5>A lot of the same reasons....</h5>
+            <ol>
+              <li>importing</li>
+              <li>variables</li>
+              <li>mixins</li>
+              <li>each/while loops</li>
+              <li>HTML is dumb</li>
+              <li>You're basically an expert at Sass now</li>
+            </ol>
+          </section>
+        </section>
+        <section>
+          <section data-background="img/bg/ralph.gif">
+            <h1 class="shadow">5. HTML is dumb</h1>
+          </section>
+          <section>
+            <h2>That's not fair.</h2>
+            <p>HTML was written by smart people, but it is immovable.</p>
+            <p>Any new stuff that's added to HTML has to exist alongside code that was approved in 1999.</p>
+            <p>Because of this, you end up typing weird things.</p>
+          </section>
+          <section>
+            <h2>Everything in HTML has to be closed.</h2>
+            <h5><i>Except when it doesn't.</i></h5>
+            <pre><code data-trim data-noescape class="html">&lt;input type=&quot;text&quot; disabled=&quot;disabled&quot; /&gt;
+&lt;textarea required=&quot;true&gt;&lt;/textarea&gt;
+&lt;h1&gt;Headline&lt;/h1&gt;
+&lt;hr /&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
+&lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;</code></pre>
+          </section>
+          <section>
+            <h3>A representative sample of Facebook's code</h3>
+            <pre class="fragment"><code data-trim class="html">&lt;div&gt;
+  &lt;div&gt;
+    &lt;div&gt;
+      &lt;div&gt;
+        &lt;div&gt;
+          &lt;div&gt;
+            &lt;div&gt;
+              &lt;div&gt;
+                &lt;script src=&quot;SomeStupidTrackingScript.js&quot;&gt;&lt;/script&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre><sub class="fragment">Source: Carly Fiorina</sub>
+          </section>
+          <section>
+            <h3>Jade is indentation based.</h3>
+            <pre class="fragment"><code data-trim class="jade">h1 So 
+  span whenever
+    i you want to
+      b nest,
+        span just hit
+          kbd TAB</code></pre>
+          </section>
+          <section>
+            <h3 class="sample-jade-headline">With <span class="green">Jade</span>, you <i> only  </i><code>write the parts </code><span class="bigger">you <b>need</b> to.</span></h3>
+            <pre class="fragment"><code data-trim class="jade">h3.jade-headline#JadeHeadline With 
+  span.green Jade
+  | , you 
+  i  only  
+  code write the parts 
+  span.bigger you 
+    b need
+    |  to.</code></pre>
+            <pre class="fragment"><code data-trim class="html">&lt;h3 id=&quot;JadeHeadline&quot; class=&quot;jade-headline&quot;&gt;
+  With
+  &lt;span class=&quot;green&quot;&gt;Jade&lt;/span&gt;, you 
+  &lt;i&gt; only &lt;/i&gt;
+  &lt;code&gt;write the parts&lt;/code&gt;
+  &lt;span class=&quot;bigger&quot;&gt;you 
+    &lt;b&gt;need&lt;/b&gt; to.
+  &lt;/span&gt;
+&lt;/h3&gt;</code></pre>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>1. Variables</h2>
+            <pre><code data-trim class="jade">- var pageTitle = "Your Lucky Number"
+- var lastUpdated = "04.20.2016"
+- var luckyNumber = Math.floor((Math.random() * 100) + 1);
+head
+  title= pageTitle
+  link(href="css/minnebar.css?updated=#{lastUpdated})
+body
+  h1 Your lucky number is
+    span.number= luckyNumber</code></pre>
+          </section>
+          <section>
+            <h3>Just like Sass, you can define and redefine variables, and use them anywhere.</h3>
+            <p>But unlike Sass, you can use any javascript function you like to create those variables.</p>
+            <p>Random numbers, conditional iterations, it's madness I tells ya, madness!</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>2. mixins</h2>
+            <pre><code data-trim class="jade">mixin button(text, url)
+  if url
+    a.active-button= text
+  else
+    .placeholder= text
+    
++button("VISIT GOOGLE", 'http://google.com')
++button('This is not a button')</code></pre>
+          </section>
+          <section>
+            <h3>💖 Mixins are terrific! 💖</h3>
+            <p>Which I probably said earlier, but unfettered Javascript access makes it even better.</p>
+          </section>
+          <section>
+            <h3>Let's make a placeholder...</h3>
+            <pre><code data-trim class="jade">- var n = 0
+mixin placeholder(caption, height, width)
+  - var things = ["Penguin", "Horse", "Coffee Cup", "Bridge", "Macbook Pro"]
+  if !height
+    - height = 600
+  if !width
+    - width = 600
+  figure
+    img(src="https://unsplash.it/#{width}/#{height}")
+    figcaption
+      a picture of a
+        span.what= things[n]
+  n++
+  
++placeholder("Duck",400,850)
++placeholder("Walrus")
++placeholder()
+
+
+</code></pre>
+          </section>
         </section>
       </div>
     </div>
