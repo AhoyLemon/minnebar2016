@@ -66,6 +66,8 @@ body { background: #252529; }
 
 .reveal .tech-logos.four-up .logo { margin-left: 1%; margin-right: 1%; }
 
+.reveal .tech-logos .full-width { -webkit-flex-basis: 100%; -ms-flex-preferred-size: 100%; flex-basis: 100%; -webkit-flex-grow: 1; -ms-flex-positive: 1; flex-grow: 1; -webkit-flex-shrink: 1; -ms-flex-negative: 1; flex-shrink: 1; -webkit-align-self: auto; -ms-flex-item-align: auto; align-self: auto; }
+
 .reveal blockquote { font-size: 0.75em; padding: 0.85em; }
 
 .reveal blockquote p { font-style: normal; padding-bottom: 0.35em; margin: 0; }
