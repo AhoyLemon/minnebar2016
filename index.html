@@ -13,10 +13,15 @@
     <div class="reveal">
       <div class="slides">
         <section>
+          <section id="TitleCard" data-background="img/bg/tyra1.jpg">
+            <h2 class="shadow">Let's make pretty code.</h2>
+          </section>
+        </section>
+        <section>
           <section>
             <h2>Hi, I'm Lemon.</h2>
-            <h2 class="fragment">I make websites.</h2>
-            <h3 class="fragment">A lot of websites.</h3>
+            <h3 class="fragment">I make websites.</h3>
+            <h4 class="fragment">A lot of websites.</h4>
           </section>
           <section>
             <h1>Big ones like...</h1>
@@ -39,9 +44,9 @@
             </ul>
           </section>
           <section><img src="img/damndog-logo.png" style="width:40vh;">
-            <blockquote style="padding-left:0.5em; padding-right:0.5em;" class="fragment">
-              <p>"The best game on the internet"</p>
-              <cite style="display:block; text-align:right;">- Gizmodo</cite>
+            <blockquote class="fragment">
+              <p>The best game on the internet</p>
+              <cite>Gizmodo</cite>
             </blockquote>
           </section>
           <section>
@@ -257,6 +262,20 @@
             <h5 class="fragment">Personally, I use Prepros.</h5>
           </section>
           <section data-background="img/bg/prepros.png"></section>
+          <section>
+            <h3>Prepros supports</h3>
+            <div class="tech-logos four-up">
+                  <div class="logo"><img src="svg/sass.svg"></div>
+                  <div class="logo"><img src="svg/jade.svg"></div>
+                  <div class="logo"><img src="svg/less.svg"></div>
+                  <div class="logo"><img src="svg/stylus.svg"></div>
+                  <div class="logo"><img src="svg/haml.svg"></div>
+                  <div class="logo"><img src="img/slim.png"></div>
+                  <div class="logo"><img src="svg/coffeescript.svg"></div>
+                  <div class="logo"><img src="svg/livescript.svg"></div>
+            </div>
+            <h5>And it does image compression too.</h5>
+          </section>
           <section data-background="img/bg/prepros2.png" data-background-size="contain">
             <div style="background-color:rgba(35,35,35,0.75); padding:1em;" class="fragment">
               <ol>
@@ -329,8 +348,8 @@
         .how {
           .you {
             .should {
-              .do {
-                .this { color:lime; }
+              .write {
+                .code { color:lime; }
               }
             }
           }  
@@ -544,23 +563,23 @@ blockquote {
           <section>
             <h2> So, why should I write Jade?</h2>
             <h5>A lot of the same reasons....</h5>
-            <ol>
-              <li>importing</li>
+            <ol class="fragment">
+              <li>HTML is dumb</li>
               <li>variables</li>
+              <li>includes</li>
               <li>mixins</li>
               <li>each/while loops</li>
-              <li>HTML is dumb</li>
               <li>You're basically an expert at Sass now</li>
             </ol>
           </section>
         </section>
         <section>
           <section data-background="img/bg/ralph.gif">
-            <h1 class="shadow">5. HTML is dumb</h1>
+            <h1 class="shadow">1. HTML is dumb</h1>
           </section>
           <section>
             <h2>That's not fair.</h2>
-            <p>HTML was written by smart people, but it is immovable.</p>
+            <p>HTML was made by smart people, but it is basically immovable.</p>
             <p>Any new stuff that's added to HTML has to exist alongside code that was approved in 1999.</p>
             <p>Because of this, you end up typing weird things.</p>
           </section>
@@ -568,7 +587,7 @@ blockquote {
             <h2>Everything in HTML has to be closed.</h2>
             <h5><i>Except when it doesn't.</i></h5>
             <pre><code data-trim data-noescape class="html">&lt;input type=&quot;text&quot; disabled=&quot;disabled&quot; /&gt;
-&lt;textarea required=&quot;true&gt;&lt;/textarea&gt;
+&lt;textarea required=&quot;required&quot;&gt;&lt;/textarea&gt;
 &lt;h1&gt;Headline&lt;/h1&gt;
 &lt;hr /&gt;
 &lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
@@ -596,12 +615,23 @@ blockquote {
           </section>
           <section>
             <h3>Jade is indentation based.</h3>
-            <pre class="fragment"><code data-trim class="jade">h1 So 
-  span whenever
-    i you want to
-      b nest,
-        span just hit
-          kbd TAB</code></pre>
+            <pre class="fragment"><code data-trim class="jade">.so
+  .whenever
+    .you want to
+      .nest
+        .just hit
+          .tab</code></pre>
+            <pre class="fragment"><code data-trim class="html">&lt;div class=&quot;so&quot;&gt;
+  &lt;div class=&quot;whenever&quot;&gt;
+    &lt;div class=&quot;you&quot;&gt;want to
+      &lt;div class=&quot;nest&quot;&gt;
+        &lt;div class=&quot;just&quot;&gt;hit
+          &lt;div class=&quot;tab&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
           </section>
           <section>
             <h3 class="sample-jade-headline">With <span class="green">Jade</span>, you <i> only  </i><code>write the parts </code><span class="bigger">you <b>need</b> to.</span></h3>
@@ -626,7 +656,7 @@ blockquote {
         </section>
         <section>
           <section>
-            <h2>1. Variables</h2>
+            <h2>2. variables</h2>
             <pre><code data-trim class="jade">- var pageTitle = "Your Lucky Number"
 - var lastUpdated = "04.20.2016"
 - var luckyNumber = Math.floor((Math.random() * 100) + 1);
@@ -645,7 +675,37 @@ body
         </section>
         <section>
           <section>
-            <h2>2. mixins</h2>
+            <h2>3. includes</h2>
+            <pre><code data-trim class="jade">doctype html
+html(lang="en")
+  head
+    include partials/head.jade
+  body
+    include partials/topnav.jade
+    
+    main
+      h1 Welcome to my home page!
+    
+    include partials/footer.jade
+    include partials/javascripts.jade</code></pre>
+          </section>
+          <section>
+            <h3>Partials allow you to only write things once.</h3>
+            <p>Global markup is bound to change sometimes. By keeping everything segmented, you can reuse all the parts you'd otherwise have to write more than once.</p>
+          </section>
+          <section data-background="https://media.giphy.com/media/gYZ7qO81g4dt6/giphy.gif">
+            <h1 class="shadow">Who needs PHP!?</h1>
+          </section>
+          <section>
+            <h2>...well, probably you.</h2>
+            <h4>(but maybe not.)</h4>
+            <p>Unless you need a client-facing CMS, Jade can do most of the stuff you'd otherwise use PHP for.</p>
+            <p>Build some HTML and host it on GitHub for free.</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>4. mixins</h2>
             <pre><code data-trim class="jade">mixin button(text, url)
   if url
     a.active-button= text
@@ -657,30 +717,92 @@ body
           </section>
           <section>
             <h3>💖 Mixins are terrific! 💖</h3>
-            <p>Which I probably said earlier, but unfettered Javascript access makes it even better.</p>
+            <p>I know I said this earlier, but unfettered javascript accesss makes mixins even better. </p>
           </section>
           <section>
             <h3>Let's make a placeholder...</h3>
-            <pre><code data-trim class="jade">- var n = 0
-mixin placeholder(caption, height, width)
-  - var things = ["Penguin", "Horse", "Coffee Cup", "Bridge", "Macbook Pro"]
+            <pre><code data-trim class="jade">mixin placeholder(caption, height, width)
+  - var tinaQuotes = ["Everyone touch each other's butts", "My heart!", "I put my bra on one boob at a time like everyone else.", "Dad, I need you to drop everything and shave my legs"]
+  if !caption
+    - caption = tinaQuotes[n]
   if !height
     - height = 600
   if !width
-    - width = 600
+    - width = Math.floor((Math.random() * 600) + 500);
   figure
     img(src="https://unsplash.it/#{width}/#{height}")
-    figcaption
-      a picture of a
-        span.what= things[n]
+    figcaption= caption
   n++
   
-+placeholder("Duck",400,850)
-+placeholder("Walrus")
-+placeholder()
-
-
-</code></pre>
++placeholder("Hi boys, I'm Tina.",400,850)
++placeholder("If boys had uteruses they’d be called duderuses")
++placeholder()</code></pre>
+          </section>
+          <section>
+            <h3>Here's what that looks like...</h3>
+            <div class="tina-figures"> 
+                          <figure><img src="https://unsplash.it/850/400">
+                            <figcaption>Hi boys, I'm Tina.</figcaption>
+                          </figure>
+                          <figure><img src="https://unsplash.it/662/600">
+                            <figcaption>If boys had uteruses they’d be called duderuses.</figcaption>
+                          </figure>
+                          <figure><img src="https://unsplash.it/989/600">
+                            <figcaption>I put my bra on one boob at a time like everyone else.</figcaption>
+                          </figure>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>5. each/while loops</h2>
+            <pre><code data-trim class="jade">- var testamonials = [ 
+    {text: "This Sass & Jade presentation is the Crank: High Voltage of tech talks!", cite: "Jason Statham"  },
+    {text: "Lemon just made me like a million times smarter", cite: "Neil DeGrasse Tyson" },
+    {text: "I heard this whole presentation is a terrorist conspiracy", cite: "Carly Fiorina" },
+    {text: "Butts.", cite: "Tina Belcher" }
+    ]
+each quote in testamonials
+  blockquote
+    p= quote.text
+    cite= quote.cite</code></pre>
+          </section>
+          <section>
+            <h3>People are raving about this presentation!</h3>
+            <blockquote>
+              <p>This Sass &amp; Jade presentation is the Crank: High Voltage of tech talks!</p>
+              <cite>Jason Statham</cite>
+            </blockquote>
+            <blockquote>
+              <p>Lemon just made me like a million times smarter</p>
+              <cite>Neil DeGrasse Tyson</cite>
+            </blockquote>
+            <blockquote>
+              <p>I heard this whole presentation is a terrorist conspiracy</p>
+              <cite>Carly Fiorina</cite>
+            </blockquote>
+            <blockquote>
+              <p>Butts.</p>
+              <cite>Tina Belcher</cite>
+            </blockquote>
+          </section>
+        </section>
+        <section>
+          <style>#KoreaSlide { top:0 !important; }</style>
+          <section id="KoreaSlide" data-background-video="video/korea.mp4">
+            <h2 class="shadow">6. and now....</h2>
+            <h4 class="shadow fragment">you're good at this.</h4>
+            <h4 class="shadow fragment">like, really good at this.</h4>
+            <h4 class="shadow fragment">Holy crap. </h4>
+          </section>
+          <section>
+            <h2>Okay,new languages are hard.</h2>
+            <p>And with both of these languages, I had times where I wished I was writing code the old way. </p>
+            <p>But when you get good at this stuff, you improve your workflow.</p>
+            <p>You write better, you write quicker, and you get the knowledge of knowing a new thing.</p>
+          </section>
+          <section>
+            <h1>Thanks for listening.</h1>
           </section>
         </section>
       </div>

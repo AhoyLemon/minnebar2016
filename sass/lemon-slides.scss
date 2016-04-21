@@ -26,11 +26,29 @@
     &.around { justify-content: space-around; }
     .logo { @include flex-item(20%,0); padding-left: 0.5em; padding-right:0.5em; @include flex-container(center); }
     img { background:transparent; border:none; box-shadow: none; width: 100%; }
+    
+    &.four-up {
+      .logo { margin-left: 1%; margin-right: 1%; }
+    }
   }
+  
+  blockquote { font-size:0.75em; padding: 0.85em;
+    p { @extend %quote; font-style: normal; padding-bottom: 0.35em; margin: 0; }
+    cite { display: block; text-align: right;
+      &:before { content:"\2013"; }
+    }
+  }
+  
 }
 
 .sample-jade-headline {
   span.green { color:lime; }
   code { padding-left:0.5em; color: yellow }
   .bigger { text-transform: uppercase; }
+}
+
+.tina-figures { @include flex-container(); align-items: center; justify-content: center;
+  figure { @include flex-item(33.3333%); padding-left: 1em; padding-right: 1em }
+  img { margin: 0 !important; }
+  figcaption { font-size:0.65em; font-style: italic;  }
 }

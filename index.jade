@@ -25,10 +25,13 @@ html(lang="en")
     .reveal
       .slides
         section
+          section#TitleCard(data-background="img/bg/tyra1.jpg")
+            h2.shadow Let's make pretty code.
+        section
           section
             h2 Hi, I'm Lemon.
-            h2.fragment I make websites.
-            h3.fragment A lot of websites.
+            h3.fragment I make websites.
+            h4.fragment A lot of websites.
           section
             h1 Big ones like...
             ul.fragment
@@ -47,10 +50,9 @@ html(lang="en")
               li damn.dog
           section
             img(src="img/damndog-logo.png" style="width:40vh;")
-            blockquote.fragment(style="padding-left:0.5em; padding-right:0.5em;")
-              p "The best game on the internet"
-              cite(style="display:block; text-align:right;") - Gizmodo
-            
+            blockquote.fragment
+              p The best game on the internet
+              cite Gizmodo
           section
             h3 I tweet sometimes.
             h1.fragment @AhoyLemon
@@ -255,6 +257,18 @@ html(lang="en")
             h5.fragment Personally, I use Prepros.
                       
           section(data-background="img/bg/prepros.png")
+          section
+            h3 Prepros supports
+            .tech-logos.four-up
+              +techLogo('sass')
+              +techLogo('jade')
+              +techLogo('less')
+              +techLogo('stylus')
+              +techLogo('haml')
+              +techLogo('slim', false, "png")
+              +techLogo('coffeescript')
+              +techLogo('livescript')
+            h5 And it does image compression too.
           section(data-background="img/bg/prepros2.png" data-background-size="contain")
             .fragment(style="background-color:rgba(35,35,35,0.75); padding:1em;")
               ol
@@ -323,8 +337,8 @@ html(lang="en")
                         .how {
                           .you {
                             .should {
-                              .do {
-                                .this { color:lime; }
+                              .write {
+                                .code { color:lime; }
                               }
                             }
                           }  
@@ -526,19 +540,19 @@ html(lang="en")
           section
             h2  So, why should I write Jade?
             h5 A lot of the same reasons....
-            ol
-              li importing
+            ol.fragment
+              li HTML is dumb
               li variables
+              li includes
               li mixins
               li each/while loops
-              li HTML is dumb
               li You're basically an expert at Sass now
         section
           section(data-background="img/bg/ralph.gif")
-            h1.shadow 5. HTML is dumb
+            h1.shadow 1. HTML is dumb
           section
             h2 That's not fair.
-            p HTML was written by smart people, but it is immovable.
+            p HTML was made by smart people, but it is basically immovable.
             p Any new stuff that's added to HTML has to exist alongside code that was approved in 1999.
             p Because of this, you end up typing weird things.
           section
@@ -548,7 +562,7 @@ html(lang="en")
             pre
               code.html(data-trim data-noescape).
                 &lt;input type=&quot;text&quot; disabled=&quot;disabled&quot; /&gt;
-                &lt;textarea required=&quot;true&gt;&lt;/textarea&gt;
+                &lt;textarea required=&quot;required&quot;&gt;&lt;/textarea&gt;
                 &lt;h1&gt;Headline&lt;/h1&gt;
                 &lt;hr /&gt;
                 &lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
@@ -579,12 +593,25 @@ html(lang="en")
             h3 Jade is indentation based.
             pre.fragment
               code.jade(data-trim).
-                h1 So 
-                  span whenever
-                    i you want to
-                      b nest,
-                        span just hit
-                          kbd TAB
+                .so
+                  .whenever
+                    .you want to
+                      .nest
+                        .just hit
+                          .tab
+            pre.fragment
+              code.html(data-trim).
+                &lt;div class=&quot;so&quot;&gt;
+                  &lt;div class=&quot;whenever&quot;&gt;
+                    &lt;div class=&quot;you&quot;&gt;want to
+                      &lt;div class=&quot;nest&quot;&gt;
+                        &lt;div class=&quot;just&quot;&gt;hit
+                          &lt;div class=&quot;tab&quot;&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
           section
             h3.sample-jade-headline With 
               span.green Jade
@@ -617,7 +644,7 @@ html(lang="en")
                 &lt;/h3&gt;
         section
           section
-            h2 1. Variables
+            h2 2. variables
             - var lastUpdated = "#{lastUpdated}"
             pre
               code.jade(data-trim).
@@ -636,7 +663,34 @@ html(lang="en")
             p Random numbers, conditional iterations, it's madness I tells ya, madness!
         section
           section
-            h2 2. mixins
+            h2 3. includes
+            pre
+              code.jade(data-trim).
+                doctype html
+                html(lang="en")
+                  head
+                    include partials/head.jade
+                  body
+                    include partials/topnav.jade
+                    
+                    main
+                      h1 Welcome to my home page!
+                    
+                    include partials/footer.jade
+                    include partials/javascripts.jade
+          section
+            h3 Partials allow you to only write things once.
+            p Global markup is bound to change sometimes. By keeping everything segmented, you can reuse all the parts you'd otherwise have to write more than once.
+          section(data-background="https://media.giphy.com/media/gYZ7qO81g4dt6/giphy.gif")
+            h1.shadow Who needs PHP!?
+          section
+            h2 ...well, probably you.
+            h4 (but maybe not.)
+            p Unless you need a client-facing CMS, Jade can do most of the stuff you'd otherwise use PHP for.
+            p Build some HTML and host it on GitHub for free.
+        section
+          section
+            h2 4. mixins
             pre
               code.jade(data-trim).
                 mixin button(text, url)
@@ -649,31 +703,84 @@ html(lang="en")
                 +button('This is not a button')
           section
             h3 💖 Mixins are terrific! 💖
-            p Which I probably said earlier, but unfettered Javascript access makes it even better.
+            p I know I said this earlier, but unfettered javascript accesss makes mixins even better. 
           section
             - var randomUnsplash = "https://unsplash.it/#{width}/#{height}"
             h3 Let's make a placeholder...
             pre
               code.jade(data-trim).
-                - var n = 0
                 mixin placeholder(caption, height, width)
-                  - var things = ["Penguin", "Horse", "Coffee Cup", "Bridge", "Macbook Pro"]
+                  - var tinaQuotes = ["Everyone touch each other's butts", "My heart!", "I put my bra on one boob at a time like everyone else.", "Dad, I need you to drop everything and shave my legs"]
+                  if !caption
+                    - caption = tinaQuotes[n]
                   if !height
                     - height = 600
                   if !width
-                    - width = 600
+                    - width = Math.floor((Math.random() * 600) + 500);
                   figure
                     img(src="#{randomUnsplash}")
-                    figcaption
-                      a picture of a
-                        span.what= things[n]
+                    figcaption= caption
                   n++
                   
-                +placeholder("Duck",400,850)
-                +placeholder("Walrus")
+                +placeholder("Hi boys, I'm Tina.",400,850)
+                +placeholder("If boys had uteruses they’d be called duderuses")
                 +placeholder()
-          
-            
+          section
+            h3 Here's what that looks like...
+            - var n = 0
+            mixin placeholder(caption, height, width)
+              - var tinaQuotes = ["Everyone touch each other's butts", "My heart!", "I put my bra on one boob at a time like everyone else.", "Dad, I need you to drop everything and shave my legs"]
+              if !caption
+                - caption = tinaQuotes[n]
+              if !height
+                - height = 600
+              if !width
+                - width = Math.floor((Math.random() * 600) + 500);
+              figure
+                img(src="https://unsplash.it/#{width}/#{height}")
+                figcaption= caption
+              -n++
+            .tina-figures 
+              +placeholder("Hi boys, I'm Tina.",400,850)
+              +placeholder("If boys had uteruses they’d be called duderuses.")
+              +placeholder()
+        section
+          section
+              h2 5. each/while loops
+              - var testamonials = [ {text: "This Sass & Jade presentation is the Crank: High Voltage of tech talks!", cite: "Jason Statham"  }, {text: "Lemon just made me like a million times smarter", cite: "Neil DeGrasse Tyson" }, {text: "I heard this whole presentation is a terrorist conspiracy", cite: "Carly Fiorina" }, {text: "Butts.", cite: "Tina Belcher" } ];
+              pre
+                code.jade(data-trim).
+                  - var testamonials = [ 
+                      {text: "This Sass & Jade presentation is the Crank: High Voltage of tech talks!", cite: "Jason Statham"  },
+                      {text: "Lemon just made me like a million times smarter", cite: "Neil DeGrasse Tyson" },
+                      {text: "I heard this whole presentation is a terrorist conspiracy", cite: "Carly Fiorina" },
+                      {text: "Butts.", cite: "Tina Belcher" }
+                      ]
+                  each quote in testamonials
+                    blockquote
+                      p= quote.text
+                      cite= quote.cite
+          section
+            h3 People are raving about this presentation!
+            each quote in testamonials
+              blockquote
+                p= quote.text
+                cite= quote.cite
+        section
+          style.
+            #KoreaSlide { top:0 !important; }
+          section#KoreaSlide(data-background-video="video/korea.mp4")
+            h2.shadow 6. and now....
+            h4.shadow.fragment you're good at this.
+            h4.shadow.fragment like, really good at this.
+            h4.shadow.fragment Holy crap. 
+          section
+            h2 Okay,new languages are hard.
+            p And with both of these languages, I had times where I wished I was writing code the old way. 
+            p But when you get good at this stuff, you improve your workflow.
+            p You write better, you write quicker, and you get the knowledge of knowing a new thing.
+          section
+            h1 Thanks for listening.
               
     script(src="lib/js/head.min.js")
     script(src="js/reveal.js")
